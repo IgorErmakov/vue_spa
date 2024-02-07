@@ -1,5 +1,6 @@
 import { reactive } from 'vue'
 import axios from "axios";
+import type Item from '../interfaces/Item'
 
 interface Items {
     items: Item[]
@@ -8,11 +9,6 @@ interface Items {
     deleteItem: (id: number) => void,
     toggleCompleted: (id: number) => void,
     processing: boolean
-}
-interface Item {
-    id: number
-    item: string
-    completed: boolean
 }
 
 export const store: Items = reactive({

@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import SupportIcon from './icons/IconSupport.vue'
-import {onMounted, ref} from 'vue'
-import TodoForm from './TodoForm.vue'
-import { store } from '../stores/todo'
-import axios from "axios";
-
-interface Item {
-  id: number
-  item: string
-  completed: boolean
-}
+  import {onMounted, ref} from 'vue'
+  import TodoForm from './TodoForm.vue'
+  import { store } from '../stores/todo'
+  import axios from "axios";
+  import type Item from '../interfaces/Item'
 
   onMounted(async () => {
     console.log('in')
@@ -17,8 +11,6 @@ interface Item {
     const {data} = await axios.get('http://localhost:8000/api/todo')
     store.setItems(data as Item[])
   })
-
-
 
 
   // const items = ref([
